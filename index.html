@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ioannfrank</title>
+    <link rel="icon" type="image/png" href="/assets/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+    <link rel="shortcut icon" href="/assets/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+    <link rel="manifest" href="/assets/site.webmanifest" />
+
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        // JavaScript для установки доступной высоты
+        function setDynamicHeight() {
+            const height = window.innerHeight;
+            document.documentElement.style.setProperty('--vh', `${height * 0.01}px`);
+        }
+        window.addEventListener('resize', setDynamicHeight);
+        window.addEventListener('orientationchange', setDynamicHeight);
+        setDynamicHeight(); // Установка при загрузке страницы
+
+        // Обработчик свайпа для обновления страницы
+        var lastY = 0;  // Начальная позиция пальца
+        document.addEventListener("touchmove", function (event) {
+            var lastS = document.documentElement.scrollTop;
+            
+            // Проверяем, что пользователь свайпает сверху вниз и не находимся в самом верху страницы
+            if(lastS == 0 && (lastY - event.touches[0].clientY) > 50 && event.cancelable) {
+                // Разрешаем обновление страницы
+                location.reload();
+                event.preventDefault();  // Останавливаем дальнейшее распространение события
+                event.stopPropagation();
+            }
+
+            lastY = event.touches[0].clientY;
+        }, {passive: false});
+    </script>
+</head>
+<body>
+
+<div class="link-container">
+    <a href="https://behance.net/ioannfrank" class="link portfolio">PORTFOLIO</a>
+    <a href="https://t.me/ioannfrank" class="link telegram">TELEGRAM</a>
+    <a href="https://x.com/ioannfrank" class="link x">X</a>
+</div>
+
+</body>
+</html>

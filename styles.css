@@ -1,0 +1,103 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+    font-family: 'Anton', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: calc(var(--vh, 1vh) * 100); /* Используем --vh для высоты */
+    overflow: hidden;
+}
+
+/* Контейнер для ссылок */
+.link-container {
+    display: grid;
+    gap: 0.5vh; /* Отступы между кнопками */
+    width: 100vw;
+    height: calc(var(--vh, 1vh) * 100); /* Высота, учитывающая доступную высоту экрана */
+    grid-template-rows: 1fr 1fr 1fr;
+    padding: 0.5vh; /* Отступ от краёв экрана */
+    box-sizing: border-box;
+}
+
+/* Стиль кнопок */
+.link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 3vh; /* Радиус, устойчивый к масштабированию */
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 400;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 15vh; /* Адаптивный размер шрифта */
+    letter-spacing: -2px;
+    opacity: 0;  /* Исходно скрыты */
+    animation: fadeIn 0.5s forwards;  /* Плавное появление */
+}
+
+/* Появление кнопок */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Каждой кнопке задаем задержку для анимации */
+.portfolio {
+    background-color: #FF87DD;
+    animation-delay: 0.3s;
+}
+.telegram {
+    background-color: #6CACFF;
+    animation-delay: 0.6s;
+}
+.x {
+    background-color: #000000;
+    color: rgba(255, 255, 255, 0.4);
+    animation-delay: 0.9s;
+}
+
+/* Эффект при наведении с разными наклонами */
+.portfolio:hover {
+    background-color: #ffffff;
+    color: #000000;
+    transform: rotate(-5deg); /* Наклон для первой кнопки */
+}
+
+.telegram:hover {
+    background-color: #ffffff;
+    color: #000000;
+    transform: rotate(5deg); /* Наклон для второй кнопки */
+}
+
+.x:hover {
+    background-color: #ffffff;
+    color: #000000;
+    transform: rotate(-5deg); /* Наклон для третьей кнопки */
+}
+
+/* Размер шрифта для планшетов (экраны шириной до 768px) */
+@media (max-width: 768px) {
+    .link {
+        font-size: 10vh; /* Уменьшенный размер шрифта для планшетов */
+        letter-spacing: -1px;
+        overflow-y: auto;  /* Добавляем вертикальный скролл только на мобильных устройствах */
+        overflow-x: hidden;  /* Отключаем горизонтальный скролл */
+    }
+}
+
+/* Размер шрифта для мобильных устройств (экраны шириной до 480px) */
+@media (max-width: 480px) {
+    .link {
+        font-size: 8vh; /* Еще меньший размер шрифта для мобильных устройств */
+        letter-spacing: -0.3px;
+        overflow-y: auto;  /* Добавляем вертикальный скролл только на мобильных устройствах */
+        overflow-x: hidden;  /* Отключаем горизонтальный скролл */
+    }
+}
