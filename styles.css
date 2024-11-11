@@ -7,7 +7,7 @@ body {
     justify-content: center;
     align-items: center;
     width: 100vw;
-    height: calc(var(--vh, 1vh) * 100); /* Используем --vh для высоты */
+    height: calc(var(--vh, 1vh) * 100); /* --vh для высоты */
     overflow: hidden;
 }
 
@@ -48,7 +48,7 @@ body {
     }
 }
 
-/* Каждой кнопке задаем задержку для анимации */
+/* Каждой кнопке задержку для анимации */
 .portfolio {
     background-color: #FF87DD;
     animation-delay: 0.3s;
